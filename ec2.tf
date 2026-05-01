@@ -54,6 +54,7 @@ resource aws_security_group my_sec_grp{
 # ec2-instance
 resource "aws_instance" "my_terr-instace"{
     count =1
+
     key_name = aws_key_pair.my_key.key_name
     security_groups = [aws_security_group.my_sec_grp.name]
     instance_type= var.ec2_instance_type
@@ -64,6 +65,7 @@ resource "aws_instance" "my_terr-instace"{
     }
     tags = {
         Name = "TWS-ubuntu_test"
+        Name= "TWS-Linux"
         
     }
 }
